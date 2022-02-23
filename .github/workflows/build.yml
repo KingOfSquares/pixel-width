@@ -11,7 +11,7 @@ jobs:
         - name: "setup jdk"
           uses: "actions/setup-java@v2"
           with:
-            distribution: openjdk
+            distribution: temurin
             java-version: 17
         - name: "setup gradle"
           uses: "gradle/gradle-build-action@v2"
