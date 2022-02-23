@@ -3,7 +3,7 @@ plugins {
 }
 
 indra {
-    github("KingOfSquares", "pixel-width") {
+    github('KingOfSquares', 'pixel-width') {
         ci(true)
     }
     mitLicense()
@@ -12,7 +12,7 @@ indra {
         pom {
             developers {
                 developer {
-                    id "KingOfSquares"
+                    id = 'KingOfSquares'
                 }
             }
         }
