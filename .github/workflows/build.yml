@@ -1,0 +1,19 @@
+name: "build"
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: "checkout repository"
+          uses: "actions/checkout@v2"
+        - name: "setup jdk"
+          uses: "actions/setup-java@v2"
+          with:
+            distribution: openjdk
+            java-version: 17
+        - name: "setup gradle"
+          uses: "gradle/gradle-build-action@v2"
+        - name: "execute gradle build"
+          run: ./gradlew build
