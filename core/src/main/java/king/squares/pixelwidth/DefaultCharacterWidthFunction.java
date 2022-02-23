@@ -7,8 +7,8 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Generated with <a href="https://github.com/KingOfSquares/MinecraftFontPixelWidth">MinecraftFontPixelWidth</a>.
  * <p>Can calculate for all characters found in the default ascii.png file</p>
- * <p>NB: this function includes the spacing after each character before the next,
- * this means that if the last character is at the end of a line it will be calculated as one(1) pixel "too long"</p>
+ * <p>This function includes the spacing after each character before the next,
+ * this means that the last character will be calculated as one(1) pixel "too long"</p>
  *
  * @since 1.0.0
  */

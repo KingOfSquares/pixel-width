@@ -1,12 +1,13 @@
 package king.squares.pixelwidth;
 
-import java.util.Objects;
-import java.util.function.Function;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.flattener.ComponentFlattener;
 import net.kyori.adventure.text.format.Style;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
+import java.util.function.Function;
 
 /**
  * A source able to return the width of text with the usage of {@link CharacterWidthFunction}s and a context {@code CX}.

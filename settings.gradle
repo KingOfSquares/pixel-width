@@ -1,2 +1,6 @@
 rootProject.name = 'pixel-width'
 
+include 'core'
+include 'utils'
+
+

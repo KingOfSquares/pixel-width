@@ -1,8 +1,5 @@
 package king.squares.pixelwidth;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.function.Function;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.flattener.ComponentFlattener;
@@ -11,6 +8,10 @@ import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.function.Function;
 
 /**
  * An implementation of the pixel width source which handles serialization with a set of functions
