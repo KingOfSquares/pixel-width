@@ -22,14 +22,3 @@ indra {
 indraSonatype {
     useAlternateSonatypeOSSHost("s01")
 }
-
-publishing {
-    repositories {
-        maven {
-            credentials {
-                username = "$usr"
-                password = "$pass"
-            }
-        }
-    }
-}
