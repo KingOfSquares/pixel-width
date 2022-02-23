@@ -1,0 +1,24 @@
+plugins {
+    id 'net.kyori.indra.publishing'
+}
+
+indra {
+    github("KingOfSquares", "pixel-width") {
+        ci(true)
+    }
+    mitLicense()
+
+    configurePublications {
+        pom {
+            developers {
+                developer {
+                    id "KingOfSquares"
+                }
+            }
+        }
+    }
+}
+
+indraSonatype {
+    useAlternateSonatypeOSSHost("s01")
+}
