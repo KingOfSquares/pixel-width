@@ -18,7 +18,7 @@ jobs:
         - name: "execute gradle build"
           run: ./gradlew build
         - name: "publish"
-          if: "${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main/') }}"
+          if: "${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/master') }}"
           run: "./gradlew publish"
           env:
              ORG_GRADLE_PROJECT_sonatypeUsername: "${{ secrets.SONATYPE_USERNAME }}"
