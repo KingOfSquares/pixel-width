@@ -1,27 +1,5 @@
 plugins {
-    id 'java'
-    id 'net.kyori.indra.checkstyle' version '2.0.6'
-    id 'net.kyori.indra.license-header' version '2.0.6'
+    id 'common-conventions'
 }
 
-group 'king.squares'
-version '1.0-SNAPSHOT'
 description 'Calculate pixel width of in game characters'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation 'net.kyori:adventure-api:4.9.3'
-    implementation 'org.jetbrains:annotations:23.0.0'
-
-    checkstyle 'ca.stellardrift:stylecheck:0.1'
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-}
-
-test {
-    useJUnitPlatform()
-}

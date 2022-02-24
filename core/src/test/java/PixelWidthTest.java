@@ -21,11 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import king.squares.pixelwidth.PixelWidthSource;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.junit.jupiter.api.Test;
+import solar.squares.pixelwidth.PixelWidthSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

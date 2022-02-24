@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package king.squares.pixelwidth;
+package solar.squares.pixelwidth;
 
 import java.util.LinkedList;
 import java.util.List;

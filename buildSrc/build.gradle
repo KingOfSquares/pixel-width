@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    var indraVer = '2.1.1'
+    implementation 'net.kyori:indra-common:' + indraVer
+    implementation 'net.kyori:indra-publishing-sonatype:' + indraVer
+}

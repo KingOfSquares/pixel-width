@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package king.squares.pixelwidth;
+package solar.squares.pixelwidth;
 
 import java.util.Objects;
 import java.util.function.Function;
@@ -36,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
  *
  * <p>If context is pointless use a generic {@link PixelWidthSource}</p>
  *
- * @param <CX> The context to take account for when choosing a Context -> CharacterWidthFunction function
+ * @param <CX> The context to take account for when choosing a Context to CharacterWidthFunction function
  * @since 1.0.0
  */
 public interface ContextualPixelWidthSource<CX> extends PixelWidthSource {

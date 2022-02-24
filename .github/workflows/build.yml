@@ -1,6 +1,6 @@
 name: "build"
 
-on: pull_request
+on: ["pull_request", "push"]
 
 jobs:
   build:
@@ -11,9 +11,15 @@ jobs:
         - name: "setup jdk"
           uses: "actions/setup-java@v2"
           with:
-            distribution: openjdk
+            distribution: temurin
             java-version: 17
         - name: "setup gradle"
           uses: "gradle/gradle-build-action@v2"
         - name: "execute gradle build"
           run: ./gradlew build
+        - name: "publish"
+          if: "${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main/') }}"
+          run: "./gradlew publish"
+          env:
+             ORG_GRADLE_PROJECT_sonatypeUsername: "${{ secrets.SONATYPE_USERNAME }}"
+             ORG_GRADLE_PROJECT_sonatypePassword: "${{ secrets.SONATYPE_PASSWORD }}"
