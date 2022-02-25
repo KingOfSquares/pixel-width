@@ -2,6 +2,14 @@ plugins {
     id 'net.kyori.indra.publishing'
 }
 
+if (System.getenv("CI") == "true") {
+    var signingKey = System.getenv("GPG_PRIVATE_KEY")
+    var signingPassword = System.getenv("GPG_PASS")
+    if (signingKey != null && signingPassword != null) {
+        signing.useInMemoryPgpKeys(signingKey, signingPassword)
+    }
+}
+
 indra {
     github('KingOfSquares', 'pixel-width') {
         ci(true)

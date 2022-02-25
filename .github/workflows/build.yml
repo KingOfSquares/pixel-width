@@ -18,15 +18,11 @@ jobs:
           uses: "gradle/gradle-build-action@v2"
         - name: "execute gradle build"
           run: ./gradlew build
-        - name: "import gpg key"
-          if: "${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/master') }}"
-          uses: crazy-max/ghaction-import-gpg@v4
-          with:
-            gpg_private_key: ${{ secrets.PGP_KEY }}
-            passphrase: ${{ secrets.PGP_PASS }}
         - name: "publish"
           if: "${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/master') }}"
-          run: "./gradlew publish"
+          run: "./gradlew -PforceSign=true publish"
           env:
              ORG_GRADLE_PROJECT_sonatypeUsername: "${{ secrets.SONATYPE_USERNAME }}"
              ORG_GRADLE_PROJECT_sonatypePassword: "${{ secrets.SONATYPE_PASSWORD }}"
+             GPG_PRIVATE_KEY: "${{ secrets.PGP_KEY }}"
+             GPG_PASS: "${{ secrets.PGP_PASS }}"
