@@ -5,5 +5,7 @@ plugins {
 description 'Text utils that uses pixel width'
 
 dependencies {
-    implementation project(':core')
+    api project(':core')
+
+    testImplementation "net.kyori:adventure-text-serializer-plain:4.9.3"
 }
