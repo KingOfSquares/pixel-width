@@ -36,7 +36,6 @@ import solar.squares.pixelwidth.PixelWidthSource;
  * @since 1.0.0
  */
 //TODO Use Service to provide component flattener(resolve custom components)
-//TODO document throws IllegalArgumentException
 public interface CenterAPI {
 
   int DEFAULT_CHAT_WIDTH = 320;
