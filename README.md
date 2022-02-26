@@ -6,10 +6,10 @@ This library consists of two modules:
 **pixel-width-core**
 ```xml
 <dependency>
-            <groupId>solar.squares</groupId>
-            <artifactId>pixel-width-core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+    <groupId>solar.squares</groupId>
+    <artifactId>pixel-width-core</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 ```groovy
 dependencies {
@@ -25,10 +25,10 @@ arbitrary context or custom character width functions.
 **pixel-width-utils**
 ```xml
 <dependency>
-            <groupId>solar.squares</groupId>
-            <artifactId>pixel-width-utils</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+    <groupId>solar.squares</groupId>
+    <artifactId>pixel-width-utils</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 ```groovy
 dependencies {
