@@ -21,25 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.Style;
-import net.kyori.adventure.text.format.TextDecoration;
-import org.junit.jupiter.api.Test;
-import solar.squares.pixelwidth.PixelWidthSource;
+package solar.squares.pixelwidth.context;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Locale;
+import org.jetbrains.annotations.NotNull;
 
-public class PixelWidthTest {
+public class DummyContext {
+  private final @NotNull Locale locale;
 
-  @Test
-  public void testCatWidth() {
-    final PixelWidthSource source = PixelWidthSource.pixelWidth();
-    assertEquals(18, source.width(Component.text("CAT")));
+  public DummyContext(final @NotNull Locale locale) {
+    this.locale = locale;
   }
 
-  @Test
-  public void testBoldCatWidth() {
-    final PixelWidthSource source = PixelWidthSource.pixelWidth();
-    assertEquals(21, source.width(Component.text("CAT", Style.style(TextDecoration.BOLD))));
+  public @NotNull Locale locale() {
+    return this.locale;
   }
+
 }
+
