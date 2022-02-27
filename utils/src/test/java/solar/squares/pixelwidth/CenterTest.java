@@ -21,6 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package solar.squares.pixelwidth;
+
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.Style;
@@ -28,7 +30,6 @@ import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
-import solar.squares.pixelwidth.PixelWidthSource;
 import solar.squares.pixelwidth.utils.CenterAPI;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
