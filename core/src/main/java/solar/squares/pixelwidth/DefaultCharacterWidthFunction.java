@@ -26,6 +26,7 @@ package solar.squares.pixelwidth;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.jetbrains.annotations.NotNull;
+import solar.squares.pixelwidth.function.CharacterWidthFunction;
 
 /**
  * Generated with <a href="https://github.com/KingOfSquares/MinecraftFontPixelWidth">MinecraftFontPixelWidth</a>.

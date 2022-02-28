@@ -34,6 +34,7 @@ import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import solar.squares.pixelwidth.function.CharacterWidthFunction;
 
 /**
  * An implementation of the pixel width source which handles serialization with a set of functions

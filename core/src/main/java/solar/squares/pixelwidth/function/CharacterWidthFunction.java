@@ -21,24 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package solar.squares.pixelwidth.context;
+package solar.squares.pixelwidth.function;
 
 import net.kyori.adventure.text.format.Style;
-import net.kyori.adventure.text.format.TextDecoration;
-import org.jetbrains.annotations.NotNull;
-import solar.squares.pixelwidth.function.CharacterWidthFunction;
 
-public class CustomFontCharacterWidthFunction implements CharacterWidthFunction {
-
-  public static CustomFontCharacterWidthFunction INSTANCE = new CustomFontCharacterWidthFunction();
-
-  @Override
-  public float widthOf(final int codepoint, final @NotNull Style style) {
-    if (Character.isLowerCase(codepoint)) return 3;
-    if (Character.isUpperCase(codepoint)) return 5;
-    if (Character.isDigit(codepoint)) return style.hasDecoration(TextDecoration.OBFUSCATED) ? 4 : 3;
-    if (Character.isSpaceChar(codepoint)) return 2;
-    if (codepoint == 65938) return 8; //𐆒
-    return 0;
-  }
+/**
+ * A function that takes a character(represented by its UTF-16 codepoint) and a {@link Style} and returns
+ * the characters width as an {@code int}.
+ *
+ * <p>Should return {@code -1} if the character width is unknown to this function</p>
+ *
+ * @since 1.0.0
+ */
+@FunctionalInterface
+public interface CharacterWidthFunction {
+  /**
+   * Gets the width for the given character(represented by its UTF-16 codepoint). {@code char}s will
+   * automatically be converted to codepoints.
+   *
+   * @since 1.0.0
+   */
+  float widthOf(int codepoint, Style style);
 }
+

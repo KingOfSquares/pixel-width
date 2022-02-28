@@ -21,24 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package solar.squares.pixelwidth.context;
+package solar.squares.pixelwidth.function;
 
-import net.kyori.adventure.text.format.Style;
-import net.kyori.adventure.text.format.TextDecoration;
-import org.jetbrains.annotations.NotNull;
-import solar.squares.pixelwidth.function.CharacterWidthFunction;
+/**
+ * A function that takes some context and returns the chat width of that context.
+ *
+ * @param <CX> a context type (player, server)
+ * @since 1.1.0
+ */
+@FunctionalInterface
+public interface ChatWidthFunction<CX> {
 
-public class CustomFontCharacterWidthFunction implements CharacterWidthFunction {
-
-  public static CustomFontCharacterWidthFunction INSTANCE = new CustomFontCharacterWidthFunction();
-
-  @Override
-  public float widthOf(final int codepoint, final @NotNull Style style) {
-    if (Character.isLowerCase(codepoint)) return 3;
-    if (Character.isUpperCase(codepoint)) return 5;
-    if (Character.isDigit(codepoint)) return style.hasDecoration(TextDecoration.OBFUSCATED) ? 4 : 3;
-    if (Character.isSpaceChar(codepoint)) return 2;
-    if (codepoint == 65938) return 8; //𐆒
-    return 0;
-  }
+  /**
+   * Gets the chat width in the given context.
+   *
+   * @param context a context
+   * @return the chat width in the given context
+   * @since 1.1.0
+   */
+  float chatWidthOf(CX context);
 }

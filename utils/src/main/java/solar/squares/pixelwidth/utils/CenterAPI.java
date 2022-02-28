@@ -27,6 +27,7 @@ import java.util.function.Function;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import org.jetbrains.annotations.NotNull;
+import solar.squares.pixelwidth.function.ChatWidthFunction;
 import solar.squares.pixelwidth.ContextualPixelWidthSource;
 import solar.squares.pixelwidth.PixelWidthSource;
 
@@ -35,7 +36,6 @@ import solar.squares.pixelwidth.PixelWidthSource;
  *
  * @since 1.0.0
  */
-//TODO Use Service to provide component flattener(resolve custom components)
 public interface CenterAPI {
 
   int DEFAULT_CHAT_WIDTH = 320;
@@ -70,6 +70,7 @@ public interface CenterAPI {
   /**
    * Center a component with a padding used to add space on both sides of the component.
    *
+   * @deprecated since 1.1.0, use {@link CenterAPI#center(Component, ContextualPixelWidthSource, Object, TextComponent, ChatWidthFunction)} instead
    * @param component the component to center
    * @param source the pixel width source used to calculate width of the component and the padding
    * @param context the context of the pixel width calculation
@@ -79,10 +80,27 @@ public interface CenterAPI {
    * @throws IllegalArgumentException if padding is too wide to fit on both sides of the center component at least once
    * @since 1.0.0
    */
+  @Deprecated
   static <CX> Component center(final @NotNull Component component, final @NotNull ContextualPixelWidthSource<CX> source, final @NotNull CX context, final @NotNull TextComponent padding, Function<CX, Float> contextToChatWidthFunction) {
+    return center(component, source, context, padding, (ChatWidthFunction<CX>) contextToChatWidthFunction::apply);
+  }
+
+  /**
+   * Center a component with a padding used to add space on both sides of the component.
+   *
+   * @param component the component to center
+   * @param source the pixel width source used to calculate width of the component and the padding
+   * @param context the context of the pixel width calculation
+   * @param padding the text to use as padding
+   * @param chatWidthFunction function to find a chat width given the context
+   * @return a component with padding to hopefully center it
+   * @throws IllegalArgumentException if padding is too wide to fit on both sides of the center component at least once
+   * @since 1.1.0
+   */
+  static <CX> Component center(final @NotNull Component component, final @NotNull ContextualPixelWidthSource<CX> source, final @NotNull CX context, final @NotNull TextComponent padding, final @NotNull ChatWidthFunction<CX> chatWidthFunction) {
     final float componentWidth = source.width(component, context);
     final float paddingWidth = source.width(padding, context);
-    return center(component, componentWidth, padding, paddingWidth, contextToChatWidthFunction.apply(context));
+    return center(component, componentWidth, padding, paddingWidth, chatWidthFunction.chatWidthOf(context));
   }
 
   /**
@@ -98,7 +116,7 @@ public interface CenterAPI {
    * @since 1.0.0
    */
   static <CX> Component center(final @NotNull Component component, final @NotNull ContextualPixelWidthSource<CX> source, final @NotNull CX context, final @NotNull TextComponent padding, final float chatWidth) {
-    return center(component, source, context, padding, cx -> chatWidth);
+    return center(component, source, context, padding, (ChatWidthFunction<CX>) cx -> chatWidth);
   }
 
   /**

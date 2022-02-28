@@ -30,13 +30,14 @@ import net.kyori.adventure.text.flattener.ComponentFlattener;
 import net.kyori.adventure.text.format.Style;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import solar.squares.pixelwidth.function.CharacterWidthFunction;
 
 /**
  * A source able to return the width of text with the usage of {@link CharacterWidthFunction}s and a context {@code CX}.
  *
  * <p>If context is pointless use a generic {@link PixelWidthSource}</p>
  *
- * @param <CX> The context to take account for when choosing a Context to CharacterWidthFunction function
+ * @param <CX> a context type (player, server, locale)
  * @since 1.0.0
  */
 public interface ContextualPixelWidthSource<CX> extends PixelWidthSource {

@@ -28,6 +28,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.flattener.ComponentFlattener;
 import net.kyori.adventure.text.format.Style;
 import org.jetbrains.annotations.NotNull;
+import solar.squares.pixelwidth.function.CharacterWidthFunction;
 
 /**
  * A source able to return the width of text with the usage of {@link CharacterWidthFunction}s.
