@@ -36,19 +36,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CenterTest {
 
+  private static boolean isSameChar(String string){
+    final char c = string.charAt(0);
+    for(int i = 1; i < string.length(); i++) {
+      if(string.charAt(i) != c)
+        return false;
+    }
+      return true;
+  }
+
   @SuppressWarnings("SameParameterValue")
   private void testCommonCenterProperties(final String original, final Component result, final float goalWidth, final Style style, final PixelWidthSource source) {
     final String serializedResult = PlainTextComponentSerializer.plainText().serialize(result);
     final float resultWidth = source.width(result);
     if (resultWidth > goalWidth) throw new AssertionFailedError("The final component can not be wider than the goal width");
-    final String[] paddings = serializedResult.split(original);
-    assertEquals(paddings[0], paddings[1]);
-    final float l1 = source.width(paddings[0], style);
-    final float l2 = source.width(paddings[1], style);
-    assertEquals(l1, l2);
-    final float l3 = source.width(original, style);
-    result.compact();
-    assertEquals(l1 + l2 + l3, resultWidth);
+    if(isSameChar(serializedResult)) { //one char
+      //no-op, nothing to center(except style but that should be covered in other tests)
+    } else {
+      final String[] paddings = serializedResult.split(original);
+      assertEquals(paddings[0], paddings[1]);
+      final float l1 = source.width(paddings[0], style);
+      final float l2 = source.width(paddings[1], style);
+      assertEquals(l1, l2);
+      final float l3 = source.width(original, style);
+      result.compact();
+      assertEquals(l1 + l2 + l3, resultWidth);
+    }
     System.out.println(serializedResult);
   }
 
@@ -97,5 +110,12 @@ public class CenterTest {
       }
     }
     if (foundContent != 1 || foundPadding != 2) throw new AssertionError("Wrong number of paddings or content found");
+  }
+
+  @Test
+  public void testOnlySpace() {
+    final String s = " ";
+    final Component component = CenterAPI.center(Component.text(s));
+    this.testCommonCenterProperties(s, component, CenterAPI.DEFAULT_CHAT_WIDTH, Style.empty(), PixelWidthSource.pixelWidth());
   }
 }
