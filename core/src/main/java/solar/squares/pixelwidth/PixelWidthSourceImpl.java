@@ -70,6 +70,10 @@ final class PixelWidthSourceImpl<CX> implements ContextualPixelWidthSource<CX> {
   public float width(final @NotNull Component component, final @Nullable CX context) {
     final float[] length = {0};
 
+    if (component == Component.space()) {
+      return 1;
+    }
+
     this.flattener.flatten(component, new FlattenerListener() {
       final List<Style> styles = new LinkedList<>();
       Style currentStyle = Style.empty();

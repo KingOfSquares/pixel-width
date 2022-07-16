@@ -32,6 +32,7 @@ import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
 import solar.squares.pixelwidth.utils.CenterAPI;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CenterTest {
@@ -97,5 +98,12 @@ public class CenterTest {
       }
     }
     if (foundContent != 1 || foundPadding != 2) throw new AssertionError("Wrong number of paddings or content found");
+  }
+
+  @Test
+  void testEmptyComponentCenter() {
+    final Component space = Component.space();
+
+    assertDoesNotThrow(() -> CenterAPI.center(space));
   }
 }
