@@ -42,9 +42,9 @@ public class DefaultCharacterWidthFunction implements CharacterWidthFunction {
   @Override
   public final float widthOf(final int c, @NotNull final Style style) {
     float width = -1;
-    switch (c) {
-      case 32: //space 1px?
-        width = 1.0F;
+    switch(c) {
+      case 8204:
+        width = 0.0F;
         break;
       case 33:
       case 39:
@@ -60,6 +60,7 @@ public class DefaultCharacterWidthFunction implements CharacterWidthFunction {
       case 108:
         width = 3.0F;
         break;
+      case 32:
       case 34:
       case 40:
       case 41:
@@ -233,4 +234,3 @@ public class DefaultCharacterWidthFunction implements CharacterWidthFunction {
     return width;
   }
 }
-
