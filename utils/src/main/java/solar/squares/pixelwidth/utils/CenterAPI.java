@@ -27,9 +27,9 @@ import java.util.function.Function;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import org.jetbrains.annotations.NotNull;
-import solar.squares.pixelwidth.function.ChatWidthFunction;
 import solar.squares.pixelwidth.ContextualPixelWidthSource;
 import solar.squares.pixelwidth.PixelWidthSource;
+import solar.squares.pixelwidth.function.ChatWidthFunction;
 
 /**
  * API for centering text in a component with various possibilities for complexity.

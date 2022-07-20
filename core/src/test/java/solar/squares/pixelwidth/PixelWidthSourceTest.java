@@ -79,6 +79,6 @@ public class PixelWidthSourceTest {
   @Test
   public void testSpaces() {
     final PixelWidthSource source = PixelWidthSource.pixelWidth();
-    assertEquals(8, source.width(text("        ")));
+    assertEquals(8 * 4, source.width(text("        ")));
   }
 }

@@ -36,13 +36,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CenterTest {
 
-  private static boolean isSameChar(String string){
+  private static boolean isSameChar(final String string) {
     final char c = string.charAt(0);
-    for(int i = 1; i < string.length(); i++) {
-      if(string.charAt(i) != c)
+    for (int i = 1; i < string.length(); i++) {
+      if (string.charAt(i) != c)
         return false;
     }
-      return true;
+    return true;
   }
 
   @SuppressWarnings("SameParameterValue")
@@ -50,7 +50,7 @@ public class CenterTest {
     final String serializedResult = PlainTextComponentSerializer.plainText().serialize(result);
     final float resultWidth = source.width(result);
     if (resultWidth > goalWidth) throw new AssertionFailedError("The final component can not be wider than the goal width");
-    if(isSameChar(serializedResult)) { //one char
+    if (isSameChar(serializedResult)) { //one char
       //no-op, nothing to center(except style but that should be covered in other tests)
     } else {
       final String[] paddings = serializedResult.split(original);
