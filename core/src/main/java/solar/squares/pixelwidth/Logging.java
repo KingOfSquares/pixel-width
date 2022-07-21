@@ -21,39 +21,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package solar.squares.pixelwidth.function;
+package solar.squares.pixelwidth;
 
 import java.util.logging.Level;
-import net.kyori.adventure.text.format.Style;
-import solar.squares.pixelwidth.Logging;
+import java.util.logging.Logger;
+import org.jetbrains.annotations.ApiStatus;
 
 /**
- * A function that takes a character(represented by its UTF-16 codepoint) and a {@link Style} and returns
- * the characters width as an {@code int}.
+ * Hack(?) to allow logging throughout the tools in different modules to use a common {@link Logger}.
+ * The used logger can be customized by library users.
  *
- * <p>Should return {@code -1} if the character width is unknown to this function</p>
- *
- * @since 1.0.0
+ * @since 1.1.0
  */
-@FunctionalInterface
-public interface CharacterWidthFunction {
-  /**
-   * Gets the width for the given character(represented by its UTF-16 codepoint). {@code char}s will
-   * automatically be converted to codepoints.
-   *
-   * @since 1.0.0
-   */
-  float widthOf(final int codepoint, final Style style);
+public final class Logging {
+
+  private static Logger logger = Logger.getLogger("pixel-width");
+
+  private Logging() {
+  }
 
   /**
-   * Should be called in {@link #widthOf(int, Style)} when a non-supported codepoint is given.
+   * Logging, should only be used internally.
    *
-   * @return a
    * @since 1.1.0
    */
-  default float handleMissing(final int codepoint, final Style style) {
-    Logging.log(Level.WARNING, this.getClass().getSimpleName() + " missing character \"" + (char) codepoint + "\"");
-    return 6F; //guesstimate
+  @ApiStatus.Internal
+  public static void log(final Level level, final String message) {
+    logger.log(level, message);
   }
-}
 
+  /**
+   * Can be used to set the logger that will be used by this library.
+   *
+   * @since 1.1.0
+   */
+  public static void logger(final Logger logger0) {
+    logger = logger0;
+  }
+
+}
