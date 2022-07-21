@@ -121,5 +121,13 @@ public interface PixelWidthSource {
    * @since 1.0.0
    */
   float width(final int codepoint, final @NotNull Style style);
+
+  /**
+   * Get the flattener used by this source.
+   *
+   * @return the flattener used by this source
+   * @since 1.1.0
+   */
+  ComponentFlattener flattener();
 }
 
