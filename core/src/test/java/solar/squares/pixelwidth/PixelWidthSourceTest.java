@@ -75,4 +75,10 @@ public class PixelWidthSourceTest {
     final PixelWidthSource custom = pixelWidth(new CustomFontCharacterWidthFunction());
     assertEquals(8, custom.width(text("\uD800\uDD92"))); // 𐆒
   }
+
+  @Test
+  public void testSpaces() {
+    final PixelWidthSource source = PixelWidthSource.pixelWidth();
+    assertEquals(8 * 4, source.width(text("        ")));
+  }
 }

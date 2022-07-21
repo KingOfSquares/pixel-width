@@ -93,18 +93,18 @@ public class ContextualPixelWidthSourceTest {
 
   @Test
   public void testWidthChildrenAndArgs() {
-    final Component component0 = text("kashike", this.bold);
-    final Component component1 = translatable("dummy.welcome", component0);
+    final Component component0 = text("kashike", this.bold); //43
+    final Component component1 = translatable("dummy.welcome", component0); //45+43
     final Component component2 = translatable("dummy.level", text("electroid", style(TextDecoration.ITALIC))).decoration(TextDecoration.BOLD, false);
     final Component component3 = translatable("dummy.news", this.bold, component2);
 
     final Component welcomePrompt = component1.append(component3);
 
     assertEquals(43, this.defaultPixelWidth.width(component0, this.context));
-    assertEquals(83, this.defaultPixelWidth.width(component1, this.context)); //includes component
-    assertEquals(145, this.defaultPixelWidth.width(component2, this.context));
-    assertEquals(175, this.defaultPixelWidth.width(component3, this.context)); //includes component2
-    assertEquals(258, this.defaultPixelWidth.width(welcomePrompt, this.context)); //includes all components
+    assertEquals(88, this.defaultPixelWidth.width(component1, this.context)); //includes component
+    assertEquals(165, this.defaultPixelWidth.width(component2, this.context));
+    assertEquals(201, this.defaultPixelWidth.width(component3, this.context)); //includes component2
+    assertEquals(289, this.defaultPixelWidth.width(welcomePrompt, this.context)); //includes all components
   }
 
   @Test
