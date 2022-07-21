@@ -39,6 +39,11 @@ public class CustomFontCharacterWidthFunction implements CharacterWidthFunction 
     if (Character.isDigit(codepoint)) return style.hasDecoration(TextDecoration.OBFUSCATED) ? 4 : 3;
     if (Character.isSpaceChar(codepoint)) return 2;
     if (codepoint == 65938) return 8; //𐆒
+    return this.handleMissing(codepoint, style);
+  }
+
+  @Override
+  public float handleMissing(final int codepoint, final Style style) {
     return 0;
   }
 }

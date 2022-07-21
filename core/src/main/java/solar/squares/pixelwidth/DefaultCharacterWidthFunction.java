@@ -229,7 +229,10 @@ public class DefaultCharacterWidthFunction implements CharacterWidthFunction {
         width = 9.0F;
         break;
     }
-    if (width != -1 && style.hasDecoration(TextDecoration.BOLD))
+
+    if (width == -1) return this.handleMissing(c, style);
+
+    if (style.hasDecoration(TextDecoration.BOLD))
       width++;
     return width;
   }

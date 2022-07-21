@@ -81,4 +81,10 @@ public class PixelWidthSourceTest {
     final PixelWidthSource source = PixelWidthSource.pixelWidth();
     assertEquals(8 * 4, source.width(text("        ")));
   }
+
+  @Test
+  public void testHandleMissing() {
+    final PixelWidthSource source = PixelWidthSource.pixelWidth(new CustomFontCharacterWidthFunction());
+    assertEquals(0, source.width(text('†')));
+  }
 }
