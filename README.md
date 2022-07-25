@@ -11,12 +11,12 @@ This library consists of two modules:
 <dependency>
     <groupId>solar.squares</groupId>
     <artifactId>pixel-width-core</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 ```groovy
 dependencies {
-    implementation 'solar.squares:pixel-width-core:1.0.0'
+    implementation 'solar.squares:pixel-width-core:1.1.0'
 }
 ```
 The core module includes:
@@ -41,12 +41,12 @@ class MyClass {
 <dependency>
     <groupId>solar.squares</groupId>
     <artifactId>pixel-width-utils</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 ```groovy
 dependencies {
-    implementation 'solar.squares:pixel-width-utils:1.0.0'
+    implementation 'solar.squares:pixel-width-utils:1.1.0'
 }
 ```
 The utils module provides features that depend on pixel width calculation to manipulate Components or text in Components in some way.
