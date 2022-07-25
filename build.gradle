@@ -3,5 +3,5 @@ plugins {
 }
 
 group 'solar.squares'
-version '1.1.0'
+version '1.2.0-SNAPSHOT'
 description 'A library with tools related to pixel width calculation of characters(codepoints) in Minecraft: Java Edition.'
