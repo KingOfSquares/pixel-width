@@ -117,5 +117,10 @@ final class PixelWidthSourceImpl<CX> implements ContextualPixelWidthSource<CX> {
   public float width(final int codepoint, final @NotNull Style style, final @Nullable CX context) {
     return this.characterWidthFunction.apply(context).widthOf(codepoint, style);
   }
+
+  @Override
+  public ComponentFlattener flattener() {
+    return this.flattener;
+  }
 }
 
